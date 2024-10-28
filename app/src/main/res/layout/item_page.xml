@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/stockSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="SYMBOL"
+        android:layout_marginBottom="10dp"
+        android:textSize="32sp"/>
+    <TextView
+        android:id="@+id/stockName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAME"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/stockSymbol"
+        android:layout_marginBottom="10dp"
+        android:textSize="25sp"/>
+    <TextView
+
+        android:id="@+id/stockLastPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LAST PRICE"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/stockName"
+        android:layout_marginBottom="10dp"
+        android:textSize="25sp"/>
+    <TextView
+        android:id="@+id/stockPriceChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PRICE CHANGE"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/stockLastPrice"
+        android:layout_marginBottom="10dp"
+        android:textSize="25sp"/>
+    <TextView
+        android:id="@+id/stockPercentChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PERCEN"
+        android:gravity="center"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/stockPriceChange"
+        android:layout_marginBottom="10dp"
+        android:textSize="25sp"/>
+    <TextView
+        android:id="@+id/stockLowPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOW PRICE"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/stockPercentChange"
+        android:layout_marginBottom="10dp"
+        android:textSize="25sp"/>
+    <TextView
+        android:id="@+id/stockOpenPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OPEN PRICE"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/stockLowPrice"
+        android:layout_marginBottom="10dp"
+
+        android:textSize="25sp"/>
+    <TextView
+        android:id="@+id/stockHighPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HIGH PRICE"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/stockOpenPrice"
+        android:layout_marginBottom="10dp"
+        android:textSize="25sp"/>
+    <TextView
+        android:id="@+id/stockVolume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VOLUME"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/stockHighPrice"
+        android:layout_marginTop="-5dp"
+        android:textSize="25sp"/>
+
+    <ImageView
+        android:id="@+id/stockLogo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_above="@id/stockSymbol"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="35dp"
+        android:src="@mipmap/ic_launcher" />
+</RelativeLayout>
