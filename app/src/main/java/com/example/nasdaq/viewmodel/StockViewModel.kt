@@ -26,7 +26,6 @@ class StockViewModel(private val repository: StockRepository) : ViewModel() {
         if (response.isSuccessful) {
             liveData.postValue(response.body())
         } else {
-            // Можна обробити помилку
         }
     }
 }

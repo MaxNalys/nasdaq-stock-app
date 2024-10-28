@@ -26,10 +26,9 @@ class ViewPagerAdapter(private var stocks: List<StockResponse>) :
 
     override fun getItemCount(): Int = stocks.size
 
-    // Новий метод для оновлення даних
     fun updateStocks(newStocks: List<StockResponse>) {
         stocks = newStocks
-        notifyDataSetChanged() // Оновлюємо адаптер
+        notifyDataSetChanged()
     }
 
     inner class StockViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -42,20 +41,34 @@ class ViewPagerAdapter(private var stocks: List<StockResponse>) :
         private val stockPercentageChange = view.findViewById<TextView>(R.id.stockPercentChange)
         private val stockLowPrice = view.findViewById<TextView>(R.id.stockLowPrice)
         private val stockSymbol = view.findViewById<TextView>(R.id.stockSymbol)
+        private val stockLogo = view.findViewById<ImageView>(R.id.stockLogo)
 
+        private fun getLogoUrl(symbol: String): String {
+            return when (symbol) {
+                "AAPL" -> "https://logo.clearbit.com/apple.com"
+                "GOOGL" -> "https://logo.clearbit.com/google.com"
+                "AMZN" -> "https://logo.clearbit.com/amazon.com"
+                else -> "https://logo.clearbit.com/$symbol.com"  // За замовчуванням
+            }
+        }
 
         fun bind(stock: StockResponse) {
-
             stockName.text = stock.symbolName
             stockPrice.text = "Last Price: ${stock.lastPrice}"
             stockOpenPrice.text = "Open Price: ${stock.openPrice}"
             stockHighPrice.text = "High Price: ${stock.highPrice}"
             stockVolume.text = "Volume: ${stock.volume}"
-            stockLowPrice.text = "Low Price:  ${stock.lowPrice}"
+            stockLowPrice.text = "Low Price: ${stock.lowPrice}"
             stockChange.text = "Price Change: ${stock.priceChange}"
             stockPercentageChange.text = "Percent Change: ${stock.percentChange}%"
             stockSymbol.text = stock.symbol
-        }
 
+            val logoUrl = getLogoUrl(stock.symbol)
+            Glide.with(stockLogo.context)
+                .load(logoUrl)
+                .placeholder(R.drawable.placeholder_logo)
+                .error(R.drawable.placeholder_logo)
+                .into(stockLogo)
+        }
     }
 }
